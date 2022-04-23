@@ -3,7 +3,7 @@ function random(n) {
   return Math.floor(Math.random() * n)
 }
 
-const symbol = "~`!@#$%^&*()_-+={[}]:;\"'<,>.?/"
+const symbol = "!@#$%^&*()_-+={[}]:;<,>.?/"
   console.log();
 
 function GetSymbol() {
