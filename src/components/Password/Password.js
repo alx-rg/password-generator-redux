@@ -1,5 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addPassword } from '../../actions';
 import "./Password.css";
 import GetWord from '../GetWord/GetWord';
 import GetSymbol from '../GetSymbol/GetSymbol';
@@ -19,6 +21,7 @@ function generateHyphenPassword() {
 }
 
 function Password() {
+  const dispatch = useDispatch()
   const [password, setPassword] = useState('BADp@$$w0rd')
   const [name, setName] = useState("Desc. for Password")
   const [hyphen, setHyphen] = useState(true)
@@ -32,6 +35,11 @@ function Password() {
           value={name} 
           onChange={(e) => setName(e.target.value)}>
         </input>
+        <div>
+          <button onClick={(e) => {
+            dispatch(addPassword(name, password))
+          }}>Save</button>
+      </div> 
       </div> 
          <div>Password: {password}</div>
        <div>

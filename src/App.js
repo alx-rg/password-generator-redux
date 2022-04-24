@@ -1,14 +1,24 @@
-import logo from './logo.svg';
+
 import './App.css';
 import Password from './components/Password/Password';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import reducers from './reducers';
+import PasswordList from './password-list';
+
+const store = createStore(reducers)
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Password />
-      </header>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <header className="App-header">
+          <Password />
+          <PasswordList />
+        </header>
+      </div>
+    </Provider>
   );
 }
 
