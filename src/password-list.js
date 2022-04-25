@@ -6,6 +6,7 @@ function PasswordList() {
   const passwords = useSelector((state) => state.passwords)
 
   const passwordList = passwords.map((pass, index) => {
+
     return (
       <div key={index}>
         <li>
@@ -13,9 +14,9 @@ function PasswordList() {
         </li>
         <li>
           Password: {pass.password}
-          <Evaluate 
+          {/* <Evaluate 
             thepassword = {pass.password}
-            />
+            /> */}
         </li>
         <hr></hr>
       </div>)

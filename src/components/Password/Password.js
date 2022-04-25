@@ -24,44 +24,51 @@ function generateHyphenPassword() {
 function Password() {
   const dispatch = useDispatch()
   const [password, setPassword] = useState('BADp@$$w0rd')
-  const [name, setName] = useState("Desc. for Password")
+  const [name, setName] = useState("Name for p@$$w0rd")
   const [hyphen, setHyphen] = useState(true)
   let isHyphened = hyphen === true ? generateHyphenPassword : generatePassword
 
   return (
     <div className='Password'>
-       <div>
+
+       <div className='Name'>
          <div>{name}</div>
          <input 
           value={name} 
           onChange={(e) => setName(e.target.value)}>
-        </input>
-        <div>
-          <button onClick={(e) => {
-            dispatch(addPassword(name, password))
-          }}>Save</button>
-      </div> 
-      </div> 
-         <div>Password: {password}</div>
-       <div>
-         <input 
-          value={password} 
-          onChange={(e) => setPassword(e.target.value)}>
-        </input>
-      </div> 
-      <div>
-        <button onClick={e => setPassword(isHyphened())}
-        >Generate</button>
+          </input>
+          <div>
+            <button onClick={(e) => {
+              dispatch(addPassword(name, password))
+            }}>Save</button>
+          </div>
       </div>
+
+      <div className='Name'>
+        </div> 
+          <div>Password: {password}</div>
+        <div>
+          <input 
+            value={password} 
+            onChange={(e) => setPassword(e.target.value)}>
+          </input>
+        </div> 
+        <div>
+          <button onClick={e => setPassword(isHyphened())}
+          >Generate</button>
+        </div> 
       <div>
+      <hr></hr>
         <label>
           <input
             type="checkbox"
             checked={hyphen}
             onChange={(e) => setHyphen(e.target.checked)} 
           />
-          Hyphenize the Password?
-          
+          <small>
+            Hyphenize the Password?
+          </small>
+          <hr></hr>
         </label>
         <div>
           <Evaluate
