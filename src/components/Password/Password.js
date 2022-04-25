@@ -5,6 +5,7 @@ import { addPassword } from '../../actions';
 import "./Password.css";
 import GetWord from '../GetWord/GetWord';
 import GetSymbol from '../GetSymbol/GetSymbol';
+import Evaluate from '../Evaluate/Evaluate';
 
 function generatePassword() {
   // console.log("Generating the Password")
@@ -62,6 +63,11 @@ function Password() {
           Hyphenize the Password?
           
         </label>
+        <div>
+          <Evaluate
+            thepassword = {password}
+            />
+        </div>
       </div>
     </div>
   )

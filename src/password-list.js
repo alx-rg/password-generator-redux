@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { connect, useSelector } from 'react-redux'
+import Evaluate from './components/Evaluate/Evaluate'
 
 function PasswordList() {
   const passwords = useSelector((state) => state.passwords)
@@ -12,6 +13,9 @@ function PasswordList() {
         </li>
         <li>
           Password: {pass.password}
+          <Evaluate 
+            thepassword = {pass.password}
+            />
         </li>
         <hr></hr>
       </div>)
